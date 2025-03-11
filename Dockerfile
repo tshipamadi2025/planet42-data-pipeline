@@ -13,5 +13,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the project files into the container
 COPY . /app
 
-# Command to run the ETL pipeline (you'll create the main.py later)
+# Copy the init_db.sql file into the container
+COPY init_db.sql /docker-entrypoint-initdb.d/
+
+# Command to run the ETL pipeline 
 CMD ["python", "main.py"]
